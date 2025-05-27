@@ -1,3 +1,4 @@
+#pragma once
 #include <u8g2.h>
 #include "u8g2_esp32_hal.h"
 #include "esp_sleep.h"

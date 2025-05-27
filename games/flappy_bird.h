@@ -656,3 +656,52 @@ void flappy_bird_run()
 {
     run_spyrometry_bird();
 }
+
+void flappy_bird_draw_bird_wings_up(short int x_pos, short int height)
+{
+    if((height-1) >= 0 && (height-1) <= (SH-1)){
+        OLEDI2C_drawLine(x_pos-4,SH - (height-1),x_pos+1,SH - (height-1));
+        OLEDI2C_drawLine(x_pos+2,SH - (height-1),x_pos+5,SH - (height-1));
+    }
+    if(height >= 0 && height <= (SH-1)){
+        OLEDI2C_drawLine(x_pos-8,SH - height,x_pos+3,SH - height);
+        OLEDI2C_drawLine(x_pos+4,SH - height,x_pos+7,SH - height);
+    }
+    if((height+1) >=0 && (height+1) <= (SH-1)){
+        OLEDI2C_drawLine(x_pos-5,SH - (height+1),x_pos,SH - (height+1));
+        OLEDI2C_drawLine(x_pos+2,SH - (height+1),x_pos+5,SH - (height+1));
+    }
+    if((height+2) >= 0 && (height+2) <= (SH-1)){
+        OLEDI2C_drawLine(x_pos-6,SH - (height+2),x_pos-1,SH - (height+2));
+    }
+    if((height+3) >= 0 && (height+3) <= (SH-1)){
+        OLEDI2C_drawLine(x_pos-8,SH - (height+3),x_pos-2,SH - (height+3));
+    }
+}
+
+void flappy_bird_draw_left_frame()
+{
+    flappy_bird_draw_bird_wings_up(33, DISPLAY_HEIGHT/2);
+}
+
+void flappy_bird_draw_middle_frame()
+{
+    flappy_bird_draw_bird_wings_up(60, DISPLAY_HEIGHT/2);
+
+    //draw pipe
+    u8g2_DrawLine(&u8g2, 70, 23, 70, 26);
+    u8g2_DrawLine(&u8g2, 70, 40, 70, 43);
+    u8g2_DrawLine(&u8g2, 71, 17, 71, 23);
+    u8g2_DrawLine(&u8g2, 71, 43, 71, 47);
+    u8g2_DrawLine(&u8g2, 71, 26, 75, 26);
+    u8g2_DrawLine(&u8g2, 71, 40, 75, 40);
+    u8g2_DrawLine(&u8g2, 75, 17, 75, 23);
+    u8g2_DrawLine(&u8g2, 75, 43, 75, 47);
+    u8g2_DrawLine(&u8g2, 76, 23, 76, 26);
+    u8g2_DrawLine(&u8g2, 76, 40, 76, 43);
+}
+
+void flappy_bird_draw_right_frame()
+{
+    flappy_bird_draw_bird_wings_up(99, DISPLAY_HEIGHT/2);
+}

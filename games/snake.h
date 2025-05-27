@@ -688,3 +688,111 @@ void snake_run()
             break; //exit game
     }
 }
+
+void snake_draw_left_frame()
+{
+    snake_node segment_1, segment_2, segment_3, segment_4, segment_5, segment_6, 
+    segment_7, segment_8, segment_9, segment_10, segment_11, segment_12, segment_13, 
+    segment_14, segment_15, segment_16;
+
+    short int head_x = 3, head_y = 9;
+    segment_1.x = head_x;      segment_1.y = head_y;
+    segment_2.x = head_x - 1;  segment_2.y = head_y;
+    segment_3.x = head_x - 2;  segment_3.y = head_y;
+    segment_4.x = head_x - 3;  segment_4.y = head_y;
+    segment_5.x = head_x - 3;  segment_5.y = head_y - 1;
+    segment_6.x = head_x - 3;  segment_6.y = head_y - 2;
+    segment_7.x = head_x - 2;  segment_7.y = head_y - 2;
+    segment_8.x = head_x - 1;  segment_8.y = head_y - 2;
+    segment_9.x = head_x;      segment_9.y = head_y - 2;
+    segment_10.x = head_x + 1; segment_10.y = head_y - 2;
+    segment_11.x = head_x + 1; segment_11.y = head_y - 3;
+    segment_12.x = head_x + 1; segment_12.y = head_y - 4;
+    segment_13.x = head_x;     segment_13.y = head_y - 4;
+    segment_14.x = head_x - 1; segment_14.y = head_y - 4;
+    segment_15.x = head_x - 2; segment_15.y = head_y - 4;
+    segment_16.x = head_x - 3; segment_16.y = head_y - 4;
+
+    segment_2.next_direction = LEFT;  segment_3.next_direction = LEFT;
+    segment_4.next_direction = DOWN;  segment_5.next_direction = DOWN;
+    segment_6.next_direction = RIGHT; segment_7.next_direction = RIGHT;
+    segment_8.next_direction = RIGHT; segment_9.next_direction = RIGHT;
+    segment_10.next_direction = DOWN; segment_11.next_direction = DOWN;
+    segment_12.next_direction = LEFT; segment_13.next_direction = LEFT;
+    segment_14.next_direction = LEFT; segment_15.next_direction = LEFT;
+    segment_16.next_direction = LEFT; segment_1.next_direction = LEFT;
+
+    segment_1.eaten = false; segment_2.eaten = false; segment_3.eaten = false;
+    segment_4.eaten = false; segment_5.eaten = false; segment_6.eaten = false;
+    segment_7.eaten = true;  segment_8.eaten = false; segment_9.eaten = false;
+    segment_10.eaten = false;segment_11.eaten = false;segment_12.eaten = false;
+    segment_13.eaten = false;segment_14.eaten = false;segment_15.eaten = false;
+    segment_16.eaten = false;
+
+    segment_1.next = &segment_2; segment_2.next = &segment_3; segment_3.next = &segment_4;
+    segment_4.next = &segment_5; segment_5.next = &segment_6; segment_6.next = &segment_7;
+    segment_7.next = &segment_8; segment_8.next = &segment_9; segment_9.next = &segment_10;
+    segment_10.next = &segment_11; segment_11.next = &segment_12; segment_12.next = &segment_13;
+    segment_13.next = &segment_14; segment_14.next = &segment_15; segment_15.next = &segment_16;
+    segment_16.next = NULL;
+    snake_draw_snake(&segment_1, RIGHT);
+    snake_open_mouth(&segment_1, RIGHT);
+    snake_draw_apple(head_x + 1, head_y);
+}
+
+void snake_draw_middle_frame()
+{
+
+}
+
+void snake_draw_right_frame()
+{
+    snake_node segment_1, segment_2, segment_3, segment_4, segment_5, segment_6, 
+    segment_7, segment_8, segment_9, segment_10, segment_11, segment_12, segment_13, 
+    segment_14, segment_15, segment_16;
+
+    short int head_x = 18, head_y = 8;
+    segment_1.x = head_x;      segment_1.y = head_y;
+    segment_2.x = head_x - 1;  segment_2.y = head_y;
+    segment_3.x = head_x - 2;  segment_3.y = head_y;
+    segment_4.x = head_x - 3;  segment_4.y = head_y;
+    segment_5.x = head_x - 3;  segment_5.y = head_y - 1;
+    segment_6.x = head_x - 3;  segment_6.y = head_y - 2;
+    segment_7.x = head_x - 2;  segment_7.y = head_y - 2;
+    segment_8.x = head_x - 1;  segment_8.y = head_y - 2;
+    segment_9.x = head_x;      segment_9.y = head_y - 2;
+    segment_10.x = head_x + 1; segment_10.y = head_y - 2;
+    segment_11.x = head_x + 1; segment_11.y = head_y - 3;
+    segment_12.x = head_x + 1; segment_12.y = head_y - 4;
+    segment_13.x = head_x;     segment_13.y = head_y - 4;
+    segment_14.x = head_x - 1; segment_14.y = head_y - 4;
+    segment_15.x = head_x - 2; segment_15.y = head_y - 4;
+    segment_16.x = head_x - 3; segment_16.y = head_y - 4;
+
+    segment_2.next_direction = LEFT;  segment_3.next_direction = LEFT;
+    segment_4.next_direction = DOWN;  segment_5.next_direction = DOWN;
+    segment_6.next_direction = RIGHT; segment_7.next_direction = RIGHT;
+    segment_8.next_direction = RIGHT; segment_9.next_direction = RIGHT;
+    segment_10.next_direction = DOWN; segment_11.next_direction = DOWN;
+    segment_12.next_direction = LEFT; segment_13.next_direction = LEFT;
+    segment_14.next_direction = LEFT; segment_15.next_direction = LEFT;
+    segment_16.next_direction = LEFT; segment_1.next_direction = LEFT;
+
+    segment_1.eaten = false; segment_2.eaten = false; segment_3.eaten = false;
+    segment_4.eaten = false; segment_5.eaten = false; segment_6.eaten = false;
+    segment_7.eaten = true;  segment_8.eaten = false; segment_9.eaten = false;
+    segment_10.eaten = false;segment_11.eaten = false;segment_12.eaten = false;
+    segment_13.eaten = false;segment_14.eaten = false;segment_15.eaten = false;
+    segment_16.eaten = false;
+
+    segment_1.next = &segment_2; segment_2.next = &segment_3; segment_3.next = &segment_4;
+    segment_4.next = &segment_5; segment_5.next = &segment_6; segment_6.next = &segment_7;
+    segment_7.next = &segment_8; segment_8.next = &segment_9; segment_9.next = &segment_10;
+    segment_10.next = &segment_11; segment_11.next = &segment_12; segment_12.next = &segment_13;
+    segment_13.next = &segment_14; segment_14.next = &segment_15; segment_15.next = &segment_16;
+    segment_16.next = NULL;
+    snake_draw_snake(&segment_1, RIGHT);
+    snake_open_mouth(&segment_1, RIGHT);
+    snake_draw_apple(head_x + 1, head_y);
+    snake_draw_animal(head_x - 2, head_y - 3, 2);
+}

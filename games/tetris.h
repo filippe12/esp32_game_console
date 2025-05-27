@@ -1011,3 +1011,48 @@ void tetris_run()
             break;
     }
 }
+
+void tetris_draw_minimap(short int x_offset, short int y_offset, short int block_size)
+{
+    bool minimap[10][10];
+    memset(minimap, 0, sizeof(minimap));
+    memset(minimap[0], 1, sizeof(minimap[0]));
+    memset(minimap[1], 1, sizeof(minimap[1]));
+    memset(minimap[2], 1, sizeof(minimap[2]));
+    minimap[0][3] = false; minimap[0][4] = false;
+    minimap[1][8] = false; minimap[2][1] = false;
+    minimap[3][3] = true; minimap[3][4] = true; minimap[3][5] = true;
+    minimap[3][6] = true; minimap[3][7] = true; minimap[3][8] = true;
+    minimap[3][9] = true; minimap[4][6] = true; minimap[4][7] = true;
+    minimap[4][8] = true; minimap[4][9] = true; minimap[5][7] = true;
+    minimap[5][8] = true; minimap[5][9] = true; minimap[6][9] = true;
+    minimap[7][9] = true; minimap[7][3] = true; minimap[8][2] = true;
+    minimap[8][3] = true; minimap[8][4] = true;
+
+    for(int row = 0; row < 10; row++)
+    {
+        for(int col = 0; col < 10; col++)
+        {
+            if(!minimap[row][col])
+                continue;
+            u8g2_DrawBox(&u8g2, x_offset + col*block_size,
+                y_offset + 9*block_size - row * block_size,
+            block_size, block_size);
+        }
+    }
+}
+
+void tetris_draw_left_frame()
+{
+    tetris_draw_minimap(23, 21, 2);
+}
+
+void tetris_draw_middle_frame()
+{
+    tetris_draw_minimap(51, 17, 3);
+}
+
+void tetris_draw_right_frame()
+{
+    tetris_draw_minimap(89, 21, 2);
+}
