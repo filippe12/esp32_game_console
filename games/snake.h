@@ -742,16 +742,15 @@ void snake_draw_left_frame()
 
 void snake_draw_middle_frame()
 {
-
-}
-
-void snake_draw_right_frame()
-{
     snake_node segment_1, segment_2, segment_3, segment_4, segment_5, segment_6, 
     segment_7, segment_8, segment_9, segment_10, segment_11, segment_12, segment_13, 
-    segment_14, segment_15, segment_16;
+    segment_14, segment_15, segment_16, segment_17, segment_18, segment_19, segment_0;
 
-    short int head_x = 18, head_y = 8;
+    segment_0.next = &segment_1, segment_0.eaten = false;
+    segment_0.next_direction = LEFT;
+    segment_0.x = 12, segment_0.y = 9;
+
+    short int head_x = 11, head_y = 9;
     segment_1.x = head_x;      segment_1.y = head_y;
     segment_2.x = head_x - 1;  segment_2.y = head_y;
     segment_3.x = head_x - 2;  segment_3.y = head_y;
@@ -762,37 +761,112 @@ void snake_draw_right_frame()
     segment_8.x = head_x - 1;  segment_8.y = head_y - 2;
     segment_9.x = head_x;      segment_9.y = head_y - 2;
     segment_10.x = head_x + 1; segment_10.y = head_y - 2;
-    segment_11.x = head_x + 1; segment_11.y = head_y - 3;
-    segment_12.x = head_x + 1; segment_12.y = head_y - 4;
-    segment_13.x = head_x;     segment_13.y = head_y - 4;
-    segment_14.x = head_x - 1; segment_14.y = head_y - 4;
-    segment_15.x = head_x - 2; segment_15.y = head_y - 4;
-    segment_16.x = head_x - 3; segment_16.y = head_y - 4;
+    segment_11.x = head_x + 2; segment_11.y = head_y - 2;
+    segment_12.x = head_x + 2; segment_12.y = head_y - 3;
+    segment_13.x = head_x + 2; segment_13.y = head_y - 4;
+    segment_14.x = head_x + 2; segment_14.y = head_y - 5;
+    segment_15.x = head_x + 1; segment_15.y = head_y - 5;
+    segment_16.x = head_x;     segment_16.y = head_y - 5;
+    segment_17.x = head_x - 1; segment_17.y = head_y - 5;
+    segment_18.x = head_x - 2; segment_18.y = head_y - 5;
+    segment_19.x = head_x - 3; segment_19.y = head_y - 5;
 
     segment_2.next_direction = LEFT;  segment_3.next_direction = LEFT;
     segment_4.next_direction = DOWN;  segment_5.next_direction = DOWN;
     segment_6.next_direction = RIGHT; segment_7.next_direction = RIGHT;
     segment_8.next_direction = RIGHT; segment_9.next_direction = RIGHT;
-    segment_10.next_direction = DOWN; segment_11.next_direction = DOWN;
-    segment_12.next_direction = LEFT; segment_13.next_direction = LEFT;
-    segment_14.next_direction = LEFT; segment_15.next_direction = LEFT;
-    segment_16.next_direction = LEFT; segment_1.next_direction = LEFT;
+    segment_10.next_direction = RIGHT; segment_11.next_direction = DOWN;
+    segment_12.next_direction = DOWN; segment_13.next_direction = DOWN;
+    segment_14.next_direction = LEFT; segment_15.next_direction = LEFT; 
+    segment_16.next_direction = LEFT; segment_17.next_direction = LEFT;
+    segment_18.next_direction = LEFT; segment_19.next_direction = LEFT;
+    segment_1.next_direction = LEFT;
 
     segment_1.eaten = false; segment_2.eaten = false; segment_3.eaten = false;
     segment_4.eaten = false; segment_5.eaten = false; segment_6.eaten = false;
     segment_7.eaten = true;  segment_8.eaten = false; segment_9.eaten = false;
     segment_10.eaten = false;segment_11.eaten = false;segment_12.eaten = false;
-    segment_13.eaten = false;segment_14.eaten = false;segment_15.eaten = false;
-    segment_16.eaten = false;
+    segment_13.eaten = true; segment_14.eaten = false;segment_15.eaten = false;
+    segment_16.eaten = false;segment_17.eaten = false;segment_18.eaten = false;
+    segment_19.eaten = false;
 
     segment_1.next = &segment_2; segment_2.next = &segment_3; segment_3.next = &segment_4;
     segment_4.next = &segment_5; segment_5.next = &segment_6; segment_6.next = &segment_7;
     segment_7.next = &segment_8; segment_8.next = &segment_9; segment_9.next = &segment_10;
     segment_10.next = &segment_11; segment_11.next = &segment_12; segment_12.next = &segment_13;
     segment_13.next = &segment_14; segment_14.next = &segment_15; segment_15.next = &segment_16;
-    segment_16.next = NULL;
-    snake_draw_snake(&segment_1, RIGHT);
-    snake_open_mouth(&segment_1, RIGHT);
-    snake_draw_apple(head_x + 1, head_y);
-    snake_draw_animal(head_x - 2, head_y - 3, 2);
+    segment_16.next = &segment_17; segment_17.next = &segment_18; segment_18.next = &segment_19;
+    segment_19.next = NULL;
+
+    snake_draw_snake(&segment_0, RIGHT);
+    snake_open_mouth(&segment_0, RIGHT);
+    snake_draw_apple(head_x + 2, head_y);
+    snake_draw_animal(9, 5, 1);
+}
+
+void snake_draw_right_frame()
+{
+    //snake
+    u8g2_DrawPixel(&u8g2, 89, 39);
+    u8g2_DrawPixel(&u8g2, 90, 39);
+    u8g2_DrawBox(&u8g2, 91, 38, 3, 2);
+    u8g2_DrawPixel(&u8g2, 94, 38);
+    u8g2_DrawPixel(&u8g2, 95, 39);
+    u8g2_DrawBox(&u8g2, 96, 38, 2, 2);
+    u8g2_DrawPixel(&u8g2, 98, 38);
+    u8g2_DrawPixel(&u8g2, 99, 39);
+    u8g2_DrawBox(&u8g2, 100, 38, 2, 2);
+    u8g2_DrawPixel(&u8g2, 102, 38);
+    u8g2_DrawPixel(&u8g2, 103, 39);
+    u8g2_DrawBox(&u8g2, 104, 38, 2, 2);
+    u8g2_DrawPixel(&u8g2, 106, 39);
+    u8g2_DrawPixel(&u8g2, 107, 38);
+    u8g2_DrawBox(&u8g2, 106, 36, 2, 2);
+    u8g2_DrawPixel(&u8g2, 106, 35);
+    u8g2_DrawPixel(&u8g2, 107, 34);
+    u8g2_DrawBox(&u8g2, 106, 32, 2, 2);
+    u8g2_DrawPixel(&u8g2, 106, 30);
+    u8g2_DrawPixel(&u8g2, 107, 31);
+    u8g2_DrawBox(&u8g2, 104, 30, 2, 2);
+    u8g2_DrawPixel(&u8g2, 102, 31);
+    u8g2_DrawPixel(&u8g2, 103, 30);
+    u8g2_DrawBox(&u8g2, 100, 30, 2, 2);
+    u8g2_DrawPixel(&u8g2, 98, 31);
+    u8g2_DrawPixel(&u8g2, 99, 30);
+    u8g2_DrawBox(&u8g2, 96, 30, 2, 2);
+    u8g2_DrawPixel(&u8g2, 94, 31);
+    u8g2_DrawPixel(&u8g2, 95, 30);
+    u8g2_DrawPixel(&u8g2, 94, 32);
+    u8g2_DrawPixel(&u8g2, 95, 32);
+    u8g2_DrawPixel(&u8g2, 94, 29);
+    u8g2_DrawPixel(&u8g2, 95, 29);
+    u8g2_DrawBox(&u8g2, 92, 30, 2, 2);
+    u8g2_DrawPixel(&u8g2, 90, 30);
+    u8g2_DrawPixel(&u8g2, 91, 31);
+    u8g2_DrawBox(&u8g2, 90, 28, 2, 2);
+    u8g2_DrawPixel(&u8g2, 90, 27);
+    u8g2_DrawPixel(&u8g2, 91, 26);
+    u8g2_DrawBox(&u8g2, 90, 24, 2, 2);
+    u8g2_DrawPixel(&u8g2, 90, 23);
+    u8g2_DrawPixel(&u8g2, 91, 22);
+    u8g2_DrawBox(&u8g2, 92, 22, 2, 2);
+    u8g2_DrawPixel(&u8g2, 94, 22);
+    u8g2_DrawPixel(&u8g2, 95, 23);
+    u8g2_DrawBox(&u8g2, 96, 22, 2, 2);
+    u8g2_DrawPixel(&u8g2, 98, 22);
+    u8g2_DrawPixel(&u8g2, 99, 23);
+    u8g2_DrawPixel(&u8g2, 100, 22);
+    u8g2_DrawPixel(&u8g2, 100, 23);
+    u8g2_DrawPixel(&u8g2, 101, 21);
+    u8g2_DrawPixel(&u8g2, 101, 23);
+    u8g2_DrawPixel(&u8g2, 102, 22);
+    u8g2_DrawPixel(&u8g2, 102, 23);
+    u8g2_DrawPixel(&u8g2, 103, 21);
+    u8g2_DrawPixel(&u8g2, 103, 24);
+    
+    //apple
+    u8g2_DrawPixel(&u8g2, 105, 22);
+    u8g2_DrawPixel(&u8g2, 106, 21);
+    u8g2_DrawPixel(&u8g2, 106, 23);
+    u8g2_DrawPixel(&u8g2, 107, 22);
 }
